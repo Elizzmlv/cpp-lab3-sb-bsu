@@ -1,14 +1,28 @@
 #include<iostream>
+#include <cmath>
 using namespace std;
-int main()
+int main ()
 {
-int k, i = 1, sum_k = 0, number;
-cout << " Enter the amount of integers to sum = "; cin >> k;
+double number;
+int k, i = 1, sum_k = 0, temp;
+cout << " Enter the amount of integers to sum = ";
+cin >> k;
+if (k == 0) {
+cout << "k can not be equal to 0!";
+}
+else {
 do {
-cout << "Enter integer nr." << i << ": ";
+cout << "Enter integer nr. " << i << ": ";
 cin >> number;
-sum_k += number; i++;
+if (fmod(number, 1) != 0) {
+cout << "Number must be integer, try again!" << '\n' << "Enter the integer to sum = ";
+cin >> temp;
+number = temp;
+}
+sum_k += number;
+i++;
 } while (i <= k);
-    cout << " The total sum of " << k << " integers is: " << sum_k;
+cout << " The total sum of " << k << " integers is: " << sum_k;
+}
 return 0;
 }
